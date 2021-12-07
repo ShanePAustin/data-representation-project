@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!-- User Homepage for the Data Representation project
+I went for a simple "app style" page-->
+<!-- Author: Shane Austin-->
+<!-- Home -->
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8"> 
+<title>Home</title> 
+
+<style>
+
+* {
+  box-sizing: border-box;
+  border-radius: 25px;
+}
+
+/* Column class to set up the top 3 buttons*/
+.column {
+
+  float: left;
+  width: 20%;
+  position: relative;
+  left: 20%;
+  margin-top: 10%;
+  padding: 5px;
+
+}
+
+/* Rows for placement of buttons*/
+.row::after, .row2:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/*on hover over the button scale the image and bring forward*/
+.column:hover {
+  opacity: 0.8;
+  transform: scale(1.5);
+  z-index: 2;
+}
+
+/* Column class to set up the bottom 3 buttons with less margins*/
+.column2 {
+  float: left;
+  width: 20%;
+  position: relative;
+  left: 20%;
+  padding: 5px;
+}
+
+/*on hover over the button scale the image and bring forward*/
+.column2:hover {
+  opacity: 0.8;
+  transform: scale(1.5);
+  z-index: 3;
+}
+
+/*hidden labels to describe function of buttons*/
+.labels {
+  position: absolute;
+  top: 1%;
+  background-color: grey;
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  opacity: 0;
+}
+
+/*on hover reveal function of buttons*/
+.labels:hover {
+  opacity: 0.75;
+}
+
+/*Text box to greet user*/
+.greet {
+  position: absolute;
+  top: 10%;
+  color: white;
+  font-size: 100px;
+  text-align: center;
+}
+
+
+.greet:hover {
+  opacity: 0.75;
+}
+
+.logout{
+
+position:fixed;
+right:10px;
+top:5px;
+}
+
+</style>
+	
+</head>
+<body>
+  <!-- Set background colour-->
+	<body style="background-color: rgb(252, 116, 7);"></body> 
+
+  <!-- Top row of Image Links, Login, and API data-->
+	<div class="row">
+      
+			<a href="login"><div class="column"><img src="images/login.png" alt="Login" title="Login" style="width:100%" ></a></div>
+			<a href="locations.html"><div class="column"><img src="images/galway.png" alt="Stations" title="Stations" style="width:100%" ></a><div class="labels" style="width:98%">Stations</div></div>
+			<a href="fleet.html"><div class="column"><img src="images/fleet.png" alt="Fleet" title="Fleet" style="width:100%" ></a><div class="labels" style="width:98%">Fleet</div></div>
+	  </div>
+
+    <!-- Bottom row of Image Links, Database pages and greeting-->
+	<div class="row2">		
+			<a href="boatsdb"><div class="column2"><img src="images/lifeboat.jfif" alt="boats" title="boats" style="width:100%" ></a><div class="labels" style="width:98%">Boats</div></div>
+			<a href="locationsdb"><div class="column2"><img src="images/map.jpg" alt="Locations" title="Locations" style="width:100%" ></a><div class="labels" style="width:98%">Locations</div></div>		
+			<div class="column2"><div class="greet" style="width:100%" id= "greet" >Welcome {{g.user.username}}</div> </div>
+  </div>
+
+    <button class="logout" onclick='location.href="logout"' type="button" class="to_login">Log Out</button>
+  </form>
+    
+</body>
+
+</html>

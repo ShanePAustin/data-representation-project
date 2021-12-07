@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!--Login Page for user name and password adapted from 
+https://www.w3schools.com/howto/howto_css_login_form.asp-->
+
+<html>
+  <head>
+
+  <!--Set the users visible area-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Login</title> 
+
+    <style>
+
+        /*Set background and fonts*/
+        body {
+          font-family: Arial, Helvetica, sans-serif; 
+          background-image: url("images/rnli-logo.jpg"); 
+          background-repeat: no-repeat; 
+          background-size: 100%;
+        }
+
+          /* Set Form backgorunds and shadows*/
+        form {
+          width:20%; 
+          height:20%; 
+          background-color: whitesmoke; 
+          margin-top: 15%; 
+          margin-left:40%;  
+          /*Dark shading around the box with different values wach side to give shadow effect*/
+          box-shadow:
+            rgba(22, 31, 39, 0.42) 0px 60px 123px -25px,
+            rgba(19, 26, 32, 0.08) 0px 35px 75px -35px;
+          /*Rounded edges*/
+          border-radius: 5%;
+          border: 5px solid;
+          border-color:
+            rgb(213, 220, 226)
+            rgb(213, 220, 226)
+            rgb(184, 194, 204);
+        }
+        /*Form Input boxes set to accept text*/
+        input[type=text], input[type=password] {
+          display: inline-block;
+          width: 75%;
+          padding: 2%;
+          margin: 2%;  
+          border: 1px solid darkslateblue;
+          box-sizing: border-box;
+        }
+
+        /*Set subscribe button position and style*/
+        button {
+          background-color: #22b315;
+          color: white;
+          padding: 4%;
+          margin: 5%;
+          border: none;
+          cursor: pointer;
+          width: 25%;
+          margin-left: 37%;
+        }
+
+        /*Change Opacity on hover*/
+        button:hover {
+          opacity: 0.8;
+        }
+
+        /*Set cancel button position and style*/
+        .cancelbtn {
+          width: auto;
+          padding: 2%;
+          background-color: #f44336;
+          margin-left: 42%;
+        }
+
+        /*container border padding*/
+        .container {
+          padding: 5%;
+        }
+
+        span.psw {
+          float: right;
+          padding-top: 10%;
+        }
+    </style>
+  </head>
+    <body>
+
+        <form method="POST" class='form'>
+
+          <div class="container">
+            <h2>Login Form</h2>
+            
+            <!--Username input allow text and set input to id username if accepted, set to required, (Hint for user for testing)-->
+            <b>Username</b>
+            <input class="input" type="text" placeholder="Enter Username" id= "username" name="username" required title="HINT: admin">
+
+            <!--Password input allow password text input set to id password, required, (Hint for user for testing)-->
+            <b>Password</b>
+            <input class="input" type="password" placeholder="Enter Password" id = "password" name="password" required title="HINT: admin">
+                
+            <!--onclick start session-->
+            <button  id = 'submit_login' class="button" type="submit" value="Login">Login</button>
+
+            <!--Cancel and return to homepage-->
+            <button onclick='location.href="homepage.html"' type="button" class="cancelbtn">Cancel</button>
+
+          </div>
+
+        </form>
+    </body>  
+</html>
