@@ -15,7 +15,7 @@ def getStations():
     page = requests.get(url)
     soup =BeautifulSoup(page.text, 'html.parser')
 
-    stations = open('./Data/stations.csv', mode='w', newline = "")
+    stations = open('./Data/locations.csv', mode='w', newline = "")
     writer = csv.writer(stations, delimiter=',',quotechar='"',quoting=csv.QUOTE_MINIMAL)
 
     table1 = soup.find('table')
@@ -41,7 +41,7 @@ def getStations():
 
     stations.close()
 
-    station = pd.read_csv('./Data/stations.csv', encoding = 'unicode_escape') 
+    station = pd.read_csv('./Data/locations.csv', encoding = 'unicode_escape') 
     # to save as html file
     station.to_html("./rnlipages/locations.html") 
     # assign it to a variable (string)

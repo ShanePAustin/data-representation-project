@@ -1,0 +1,13 @@
+id,type,class,crew,length,speed
+1,ALB,Severn,7,17.3,25
+2,ALB,Tamar,7,16.3,25
+3,ALB,Trent,6,56,3
+4,ALB,Shannon,6,13.6,25
+5,ALB,Mersey,6,11.6,17
+6,ILB,"B Class Atlantic 75",3,7.4,32
+7,ILB,"B Class Atlantic 85",4,8.4,35
+8,ILB,"E Class Mk1",3,9,33
+9,ILB,"E Class Mk2",4,10.5,40
+10,ILB,"Rescue Hovercraft",4,8,30
+11,ILB,"D Class",3,5,25
+12,IRB,Arancia,2,3.9,26
