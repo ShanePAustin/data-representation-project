@@ -272,7 +272,7 @@ def Fleet():
     return redirect('locations.html')
 
 #getStations()
-#getFleet()
+#flagetFleet()
 
 if __name__ == "__main__":
     app.run(debug=True)

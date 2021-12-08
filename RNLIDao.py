@@ -3,18 +3,33 @@
 
 import mysql.connector
 from mysql.connector import cursor
+import dbconfig as cfg
 
 #Establish connection
 class RnliDao:
-    db = ""
-    def __init__(self):
-        self.db = mysql.connector.connect(
-            host = 'localhost',
-            user = 'root',
-            password = 'root',
-            database = 'datarepresentation'
+        #db connection
+    def ConnectionToDB(self):
+        db = mysql.connector.connect(
+            host=cfg.mysql['host'],
+            user=cfg.mysql['username'],
+            password=cfg.mysql['password'],
+            database=cfg.mysql['database'],
+            pool_name = 'connection_pool',
+            pool_size=5
         )
-        #print("Connection made")
+        return db
+
+    # Get a connection from the pool
+    def getConnection(self):
+        db = mysql.connector.connect(
+        pool_name='connection_pool'
+        )
+        return db
+
+    # Initialise DB connection pool
+    def __init__(self):
+        db = self.ConnectionToDB()
+        db.close()
 
     #Function to create a row into boat table
     def createBoat(self, boat):
