@@ -31,6 +31,7 @@ def getStations():
     rows = soup.findAll("tr")
     for row in rows:
         cols = row.findAll('td')
+        #del rows[-1]
 
         dataList = []
         for col in cols:
@@ -38,10 +39,13 @@ def getStations():
         
         #write the data
         writer.writerow(dataList)
-
+        
     stations.close()
 
-    station = pd.read_csv('./Data/locations.csv', encoding = 'unicode_escape') 
+    station = pd.read_csv('./Data/locations.csv', encoding = 'unicode_escape')
+    keep_col = ['Station','Location','Lifeboat type(s)','Launch method','Name and Number']
+    station = station[keep_col]
+    station = station.iloc[:-1]
     # to save as html file
     station.to_html("./rnlipages/locations.html") 
     # assign it to a variable (string)
@@ -65,6 +69,7 @@ def getFleet():
     fleet.to_html("./rnlipages/fleet.html") 
     #assign it to a variable (string)
     html_file = fleet.to_html()
+
 
 
 

@@ -261,8 +261,18 @@ def deleteStation(ID):
 
 #########################################################################################
 
-getStations()
-getFleet()
+@app.route('/fleet')
+def Stations():
+    getStations()
+    return redirect('fleet.html')
+
+@app.route('/locations')
+def Fleet():
+    getFleet()
+    return redirect('locations.html')
+
+#getStations()
+#getFleet()
 
 if __name__ == "__main__":
     app.run(debug=True)
