@@ -42,7 +42,7 @@
             <table id="createUpdateForm">
 			
                 <tr>    
-                    <td>id</td>
+                    <td>ID</td>
                     <td><input type="text" name="ID" id="idInput"></td>
                 </tr>			
                 <tr>
@@ -55,11 +55,37 @@
                 </tr>
                 <tr>
                     <td>Lifeboat type(s)</td>
-                    <td><input type="text" name="type"></td>
+                    <td>
+                        <select type="text" name="type">
+                        <option value="Severn">Severn</option>
+                        <option value="Tamar">Tamar</option>
+                        <option value="Trent">Trent</option>
+                        <option value="Shannon">Shannon</option>
+                        <option value="Mersey">Mersey</option>
+                        <option value="B Class Atlantic 75">B Class Atlantic 75</option>                        
+                        <option value="B Class Atlantic 85">B Class Atlantic 85</option>
+                        <option value="E Class Mk1">E Class Mk1</option>
+                        <option value="E Class Mk2">E Class Mk2</option>
+                        <option value="Rescue Hovercraft">Rescue Hovercraft</option>
+                        <option value="D Class">D Class</option>
+                        <option value="Arancia">Arancia</option>                      
+
+                        </select>
+                    </td>
+
                 </tr>
                 <tr>    
                     <td>Launch method</td>
-                    <td><input type="text" name="launch_method"></td>
+                    <td>
+                    <select type="text" name="launch_method">
+                        <option value="Moored afloat">Moored afloat</option>
+                        <option value="Slipway">Slipway</option>
+                        <option value="Launchway">Launchway</option>
+                        <option value="Carriage">Carriage</option>
+                        <option value="Davit">Davit</option>
+
+                    </select>
+                </td>
                 </tr>
                 <tr>    
                     <td>Name and Number</td>
@@ -67,7 +93,8 @@
                 </tr>
 
                 <tr>
-                    <td></td><td>
+                    <td></td>
+                    <td>
                         <button id="create-button" onclick="doCreate()">Create</button>     
                         <button id="update-button" onclick="doUpdate()">Update</button>
                     </td>
@@ -79,7 +106,14 @@
             <button onClick="showCreate()">Create</button>
             <table id="stationTable" class="table">
                 <tr>
-                    <th>id</th><th>Station</th><th>Location</th><th>Lifeboat type(s)</th><th>Launch method</th><th>Name and Number</th><th></th><th></th>
+                    <th>ID</th>
+                    <th>Station</th>
+                    <th>Location</th>
+                    <th>Lifeboat type(s)</th>
+                    <th>Launch method</th>
+                    <th>Name and Number</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 
             </table>
@@ -125,8 +159,8 @@
                 
                 form.querySelector('input[name="station"]').value = station.station
                 form.querySelector('input[name="location"]').value = station.location
-                form.querySelector('input[name="type"]').value = station.type
-                form.querySelector('input[name="launch_method"]').value = station.launch_method
+                form.querySelector('select[name="type"]').value = station.type
+                form.querySelector('select[name="launch_method"]').value = station.launch_method
                 form.querySelector('input[name="name"]').value = station.name         
             }
             function clearForm() {
@@ -138,8 +172,8 @@
 
                     form.querySelector('input[name="station"]').value = ''
                     form.querySelector('input[name="location"]').value = ''
-                    form.querySelector('input[name="type"]').value = ''
-                    form.querySelector('input[name="launch_method"]').value = ''
+                    form.querySelector('select[name="type"]').value = ''
+                    form.querySelector('select[name="launch_method"]').value = ''
                     form.querySelector('input[name="name"]').value = ''                    
                 }
 
@@ -224,8 +258,8 @@
                 station.ID = form.querySelector('input[name="ID"]').value
                 station.station = form.querySelector('input[name="station"]').value
                 station.location = form.querySelector('input[name="location"]').value
-                station.type = form.querySelector('input[name="type"]').value
-                station.launch_method = form.querySelector('input[name="launch_method"]').value
+                station.type = form.querySelector('select[name="type"]').value
+                station.launch_method = form.querySelector('select[name="launch_method"]').value
                 station.name = form.querySelector('input[name="name"]').value
                 //console.log(station)
                  return station

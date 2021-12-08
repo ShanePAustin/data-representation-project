@@ -37,27 +37,33 @@
             <table id="createUpdateForm">
 
                 <tr>
-                    <td>id</td>
+                    <td>ID</td>
                     <td><input type="text" name="ID" id="idInput"></td>
                 </tr>
                 <tr>
-                    <td>type</td>
-                    <td><input type="text" name="type"></td>
+                    <td>Type</td>
+                    <td>
+                        <select type="text" name="type">
+                        <option value="ALB">ALB</option>
+                        <option value="ILB">ILB</option>
+                        <option value="IRB">IRB</option>                        
+                        </select>
+                    </td>
                 </tr>
                 <tr>
-                    <td>class</td>
+                    <td>Class</td>
                     <td><input type="text" name="class"></td>
                 </tr>
                 <tr>    
-                    <td>crew</td>
+                    <td>Crew</td>
                     <td><input type="int" name="crew"></td>
                 </tr>
                 <tr>    
-                    <td>length</td>
+                    <td>Length (m)</td>
                     <td><input type="int" name="length"></td>
                 </tr>
                 <tr>    
-                    <td>speed</td>
+                    <td>Speed (kn)</td>
                     <td><input type="int" name="speed"></td>
                 </tr>
                 
@@ -74,7 +80,14 @@
             <button onClick="showCreate()">Create</button>
             <table id="boatTable" class="table">
                 <tr>
-                    <th>id</th><th>type</th><th>class</th><th>crew</th><th>length</th><th>speed</th><th></th><th></th>
+                    <th>ID</th>
+                    <th>Type</th>
+                    <th>Class</th>
+                    <th>Crew</th>
+                    <th>Length (m)</th>
+                    <th>Speed (kn)</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 
             </table>
@@ -118,25 +131,25 @@
                 form.querySelector('input[name="ID"]').value = boat.ID
                 form.querySelector('input[name="ID"]').disabled=true
                 
-                form.querySelector('input[name="type"]').value = boat.type
+                form.querySelector('select[name="type"]').value = boat.type
                 form.querySelector('input[name="class"]').value = boat.class
                 form.querySelector('input[name="crew"]').value = boat.crew
                 form.querySelector('input[name="length"]').value = boat.length
                 form.querySelector('input[name="speed"]').value = boat.speed         
             }
             function clearForm() {
-                    var form = document.getElementById('createUpdateForm')
+                var form = document.getElementById('createUpdateForm')
 
 
-                    form.querySelector('input[name="ID"]').value = ''
-                    form.querySelector('input[name="ID"]').disabled = false
+                form.querySelector('input[name="ID"]').value = ''
+                form.querySelector('input[name="ID"]').disabled = false
 
-                    form.querySelector('input[name="type"]').value = ''
-                    form.querySelector('input[name="class"]').value = ''
-                    form.querySelector('input[name="crew"]').value = ''
-                    form.querySelector('input[name="length"]').value = ''
-                    form.querySelector('input[name="speed"]').value = ''                    
-                }
+                form.querySelector('select[name="type"]').value = ''
+                form.querySelector('input[name="class"]').value = ''
+                form.querySelector('input[name="crew"]').value = ''
+                form.querySelector('input[name="length"]').value = ''
+                form.querySelector('input[name="speed"]').value = ''                    
+            }
 
             function doCreate(){
                 console.log("in doCreate")
@@ -217,7 +230,7 @@
 
                 var boat = {}
                 boat.ID = form.querySelector('input[name="ID"]').value
-                boat.type = form.querySelector('input[name="type"]').value
+                boat.type = form.querySelector('select[name="type"]').value
                 boat.class = form.querySelector('input[name="class"]').value
                 boat.crew = form.querySelector('input[name="crew"]').value
                 boat.length = form.querySelector('input[name="length"]').value
