@@ -3,7 +3,7 @@
 ##########################################################################################################
 ##########################################################################################################
 
-from flask import Flask, url_for, request, redirect, abort, jsonify, render_template, session, g, session
+from flask import Flask, url_for, request, redirect, abort, jsonify, render_template, session, g
 from RNLIDao import rnliDao
 from rnliScrapeCSV import getStations, getFleet
 

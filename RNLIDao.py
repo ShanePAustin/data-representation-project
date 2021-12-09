@@ -8,28 +8,34 @@ import dbconfig as cfg
 #Establish connection
 class RnliDao:
         #db connection
-    def ConnectionToDB(self):
-        db = mysql.connector.connect(
+    db=""
+    def ConnectToDB(self):
+        self.db = mysql.connector.connect(
             host=cfg.mysql['host'],
-            user=cfg.mysql['username'],
+            user=cfg.mysql['user'],
             password=cfg.mysql['password'],
             database=cfg.mysql['database'],
-            pool_name = 'connection_pool',
-            pool_size=5
+            #pool_name = 'connection_pool',
+            #pool_size=3
         )
-        return db
+        #return db
 
     # Get a connection from the pool
-    def getConnection(self):
-        db = mysql.connector.connect(
-        pool_name='connection_pool'
-        )
-        return db
+    #def getConnect(self):
+        #db = mysql.connector.connect(
+        #pool_name='connection_pool'
+        #)
+        #return db
 
     # Initialise DB connection pool
     def __init__(self):
-        db = self.ConnectionToDB()
-        db.close()
+        self.ConnectToDB()
+        #db.close()
+
+    def getCursor(self):
+        if not self.db.is_connected():
+            self.connectToDB()
+        return self.db.cursor()
 
     #Function to create a row into boat table
     def createBoat(self, boat):

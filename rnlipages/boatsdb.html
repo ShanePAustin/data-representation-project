@@ -246,9 +246,8 @@
 
             function populateTable(){
                 //ajax getAll
-            host= window.location.origin
                $.ajax({
-                   url: host+'/boats',
+                   url:'http://127.0.0.1:5000/boats',
                    method:'GET',
                    datatype:'JSON',
                    success:function(results){
