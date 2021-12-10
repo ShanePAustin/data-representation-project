@@ -5,7 +5,7 @@
 
 from flask import Flask, url_for, request, redirect, abort, jsonify, render_template, session, g
 from RNLIDao import rnliDao
-from rnliScrapeCSV import getStations, getFleet
+from rnliScrape import getStations, getFleet
 
 ##########################################################################################################
 #Set up and store session users
@@ -44,20 +44,34 @@ def before_request():
 #Login page to verify credentials and start session
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST':
-        session.pop('user_id', None)
 
-        username = request.form['username']
-        password = request.form['password']
+    while True:
+        try:
+
+            if request.method == 'POST':
+                session.pop('user_id', None)
+
+                username = request.form['username']
+                password = request.form['password']
+                
+                user = [x for x in users if x.username == username][0]
+                if user and user.password == password:
+                    session['user_id'] = user.id
+                    return redirect(url_for('profile'))
+
+                return redirect(url_for('login'))
+        except:
+                return '<h1>Unknown User</h1> '+\
+        '<button>'+\
+            '<a href="'+url_for('login')+'">' +\
+                'Try Again' +\
+            '</a>' +\
+        '</button>'
         
-        user = [x for x in users if x.username == username][0]
-        if user and user.password == password:
-            session['user_id'] = user.id
-            return redirect(url_for('profile'))
 
-        return redirect(url_for('login'))
+        return render_template('login.html')
 
-    return render_template('login.html')
+        
 
 #Session Logout page
 @app.route('/logout')

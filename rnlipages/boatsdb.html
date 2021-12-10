@@ -27,10 +27,17 @@
                     tr:nth-child(even) {                    
                       background-color: #739dec;                    
                     }
+                    .back{
+
+                        position:fixed;
+                        right:10px;
+                        top:5px;
+                        }
                                
                     </style>
     </head>
     <body>
+        <button onclick="history.back()" class="back ">Go Back</button>
 
         <div id="create-update" style="display:none">
             <h2>create-edit</h2>
@@ -56,15 +63,15 @@
                 </tr>
                 <tr>    
                     <td>Crew</td>
-                    <td><input type="int" name="crew"></td>
+                    <td><input type="number" name="crew"></td>
                 </tr>
                 <tr>    
                     <td>Length (m)</td>
-                    <td><input type="int" name="length"></td>
+                    <td><input type="number" name="length"></td>
                 </tr>
                 <tr>    
                     <td>Speed (kn)</td>
-                    <td><input type="int" name="speed"></td>
+                    <td><input type="number" name="speed"></td>
                 </tr>
                 
                 <tr>

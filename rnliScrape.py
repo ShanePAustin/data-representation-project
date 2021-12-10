@@ -64,16 +64,13 @@ def getFleet():
     csv_file.close()
 
     #to read csv file"
-    fleet = pd.read_csv('./Data/fleet.csv') 
+    df = pd.read_csv('./Data/fleet.csv') 
     #to save as html file
-    fleet.to_html("./rnlipages/fleet.html") 
+    df.to_html("./rnlipages/fleet.html") 
     #assign it to a variable (string)
-    html_file = fleet.to_html()
+    html_file = df.to_html()
 
 
-
-
-    
     
     
 
